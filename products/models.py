@@ -3,12 +3,12 @@ from django.template.defaultfilters import slugify
 
 class Category(models.Model):
     STATUS_CHOICES = (
-        ("Актиный", "active"),
-        ("Не актиный", "deactive"),
+        ("active", "Актиный" ),
+        ("deactive", "Не актиный"),
     )
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255)
-    image = models.ImageField(upload_to='categories/%Y/%m/%d')
+    image = models.ImageField(upload_to='categories/%Y/%m/%d', null=True, blank=True)
     status = models.CharField(max_length=100, choices=STATUS_CHOICES, default='active')
     show_in_home = models.CharField(max_length=100, choices=STATUS_CHOICES, default='active')
 
@@ -21,8 +21,8 @@ class Category(models.Model):
 
 class Product(models.Model):
     STATUS_CHOICES = (
-        ("Актиный", "active"),
-        ("Не актиный", "deactive"),
+        ("active", "Актиный" ),
+        ("deactive", "Не актиный"),
     )
 
     name = models.CharField(max_length=255)
