@@ -138,3 +138,7 @@ GitHub.sublime-settings
 
 static/css/output.css
 node_modules/
+
+.vscode/
+
+venv/
